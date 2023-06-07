@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Fb group posts getter",
+    "description": "Get lists of posts in Facebook group, export to Excel for Marketing analysis",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "scripting",
+        "activeTab",
+        "downloads"
+    ],
+    "host_permissions": [
+        "*://*/*",
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["xlsx.mini.js", "content_script.js"]
+        }
+    ]
+  }
+  

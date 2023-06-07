@@ -1,18 +1,4 @@
-/* =============================== 
-    FACEBOOK GROUP POSTS SCRAPPER
-    Author: Jind Pro <jindessi.rabe@gmail.com>
-    Version: 0.1
-/* =============================== */
-
-/* =========== Usage =========== */
-/* - > Go to a facebook group page using web version
-- > Open the inspector
-- > Copy code from "START COPYING FROM HERE" comment to "STOP COPYING TO HERE " comment
-- > NB: You may need to change thos variable initialize if facebook has changes class names of targeted tag */
-
-
-/* START COPYING FROM HERE */
-
+console.log('Running code ...');
 /* Variable initializing */
 let posts = []; // Init posts list which hold list of posts
 const like_count_selector = 'span.x1e558r4'; // like count text selector without the icon
@@ -80,11 +66,8 @@ while (true) {
     
         }
     }
-    /* posts_container.childNodes[3] : the 3rd post item wrapper */
 
     if( posts.length >= 10 ) break;
 }
 
 console.log( posts );
-
-/* STOP COPYING TO HERE */
