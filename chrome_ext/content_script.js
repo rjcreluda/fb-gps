@@ -62,9 +62,16 @@ async function scrapeDOM( maxCount ) {
                 // if post has has like
                 let like = post.querySelectorAll( like_count_selector );
                 let like_count = like.length > 0 ? Number(like[1].innerText) : 0;
-                let comment_btn = post.querySelectorAll('span.' + comment_count_class.split(' ').join('.'))[2];
-                let comment_count = comment_btn ? comment_btn.textContent : '0';
-                comment_count = comment_count.replace('commentaires', '').trim();
+                let comment = post.querySelectorAll('span.' + comment_count_class.split(' ').join('.'));
+                const array = [...comment];
+                const comment_text = array.at(-1)?.textContent;
+                let comment_count = null;
+                if( comment_text ){
+                    comment_count = comment_text.length <= 20 ? comment_text : '0';
+                }
+                else{
+                    comment_count = '0';
+                }
 
                 // Brand, post title
                 let title, price;
